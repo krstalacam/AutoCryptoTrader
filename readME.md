@@ -1,4 +1,6 @@
-## 🚀 Kripto Para Ticaret Botu
+# 🚀 Kripto Para Ticaret Botu
+
+![Crypto Bot Web Arayüzü](assets/gifs/crypto_bot_web.gif)  
 
 Bu proje, **otomatik alım-satım** yapabilen, **teknik analiz** göstergeleri kullanan ve **web arayüzü** üzerinden kontrol edilebilen kapsamlı bir **kripto ticaret botudur**.
 
@@ -10,7 +12,7 @@ Botu başlatmak için:
 ```
 python -m cripto_bot_v1.binance_bot.Crypto_Bot_App
 ```
-Bu komut, veri toplaycıdan işlem yöneticisine kadar tüm bileşenleri başlatır.
+Bu komut, veri toplayıcıdan işlem yöneticisine kadar tüm bileşenleri başlatır.
 
 Eğer **Python komutunu** doğrudan kullanamıyorsanız ve PATH ile ilgili bir sorun varsa, şu komutu da alternatif olarak kullanabilirsiniz:
 ```
@@ -31,34 +33,37 @@ Not: Eğer "cd C:\crypto_bot" komutunu kullanacaksanız, dosyaların C:\crypto_b
 ✅ **SQLite veritabanı** ile işlem geçmişi kaydı  
 ✅ **Test modu (Paper Trading)** desteği  
 ✅ **Manuel ve otomatik işlem seçenekleri**  
-✅ **Performans grafikleri ve analiz araçları**  
+✅ **Performans grafikleri ve analiz araçları**
 
 ---
 
 ## ⚙️ Sistem Mimarisi
 
-**1️⃣ Veri Toplayıcı** 📊  
-- Binance API'den fiyat verisi çeker
-- Çoklu thread yapısı ile yüksek hız
-- Verileri SQLite'e kaydeder
+### **1️⃣ Veri Toplayıcı** 📊  
+- Binance API'den fiyat verisi çeker  
+- Çoklu thread yapısı ile yüksek hız  
+- Verileri SQLite'e kaydeder  
 - Otomatik hata yönetimi
 
-**2️⃣ Sinyal İşleyici** 📈  
-- Teknik analiz göstergeleri hesaplar
-- **Bollinger Bantları, RSI ve özel göstergeler** kullanır
-- Skor bazlı değerlendirme (1-10 arası)
+### **2️⃣ Sinyal İşleyici** 📈  
+- Teknik analiz göstergeleri hesaplar  
+- **Bollinger Bantları, RSI ve özel göstergeler** kullanır  
+- Skor bazlı değerlendirme (1-10 arası)  
 - Çoklu gösterge kombinasyonu ile karar mekanizması
 
-**3️⃣ İşlem Yöneticisi** 💰  
-- Alım-satım emirlerini yönetir
-- **Binance API ile güvenli emir gönderimi**
-- Risk yönetimi ve kar/zarar takibi
+### **3️⃣ İşlem Yöneticisi** 💰  
+- Alım-satım emirlerini yönetir  
+- **Binance API ile güvenli emir gönderimi**  
+- Risk yönetimi ve kar/zarar takibi  
 - İşlem geçmişi kaydı
 
-**4️⃣ Web Arayüzü** 🌍  
-- **Gerçek zamanlı fiyat takibi ve emir yönetimi**
-- Kullanıcı dostu panel (FastAPI + WebSocket)
+### **4️⃣ Web Arayüzü** 🌍  
+- **Gerçek zamanlı fiyat takibi ve emir yönetimi**  
+- Kullanıcı dostu panel (FastAPI + WebSocket)  
 - **İşlem geçmişi ve performans grafikleri**
+
+![Web Arayüzü 1](assets/images/website1.png)  
+![Web Arayüzü 2](assets/images/website2.png)  
 
 ---
 
@@ -80,6 +85,7 @@ saç     # Al/sat sinyallerini erkenden hesaplamaya başlar (isteğe bağlı)
 aç      # Otomatik alım-satımı aktifleştirir
 kapat   # Otomatik alım-satımı kapatır
 ```
+
 ### 🌐 Web Arayüzü
 Tüm işlemleri tarayıcınızdan yönetebilirsiniz! 🚀
 
@@ -114,7 +120,7 @@ Tüm işlemleri tarayıcınızdan yönetebilirsiniz! 🚀
 📌 **cripto_bot_v1/binance_bot/trading_signal_processor.py** → **Sinyal hesaplama** 📊  
 📌 **cripto_bot_v1/sql/** → **SQLite veritabanı işlemleri** 🗄  
 📌 **cripto_bot_v1/inducatorv_main/** → **Teknik analiz göstergeleri** 📈  
-📌 **cripto_bot_v1/website_app/** → **Web arayüzü modülleri** 🌍  
+📌 **cripto_bot_v1/website_app/** → **Web arayüzü modülleri** 🌍
 
 ---
 
@@ -142,15 +148,6 @@ Tüm işlemleri tarayıcınızdan yönetebilirsiniz! 🚀
 
 ---
 
-## 💡 İpuçları
-
-✔ **İlk kullanımda API anahtarlarınızı ve veritabanı ayarlarınızı kontrol edin**  
-✔ **Test modunda çalıştırarak riski minimize edin**  
-✔ **Logları inceleyerek hata ayıklama yapabilirsiniz** (`logs/` klasörünü kontrol edin!)  
-✔ **Saat ayarlarını doğru yapın** (Binance ile senkron çalışması için)  
-
----
-
 ## 💡 Kendi İndikatörlerinizi Oluşturun
 
 Bot, mevcut indikatörler ve teknik analiz araçlarıyla hazır bir şekilde gelir, ancak siz **kendi özel göstergelerinizi** oluşturabilir ve test edebilirsiniz! 💻📊
@@ -159,3 +156,16 @@ Bot, mevcut indikatörler ve teknik analiz araçlarıyla hazır bir şekilde gel
 - İhtiyacınıza göre **göstergeleri özelleştirebilir** ve **performanslarını test edebilirsiniz**.
 
 🚀 **Güvenli ve kârlı işlemler dileriz!** 📈💰
+
+---
+
+## 📸 Ek Görseller
+
+![SQL Veritabanı](assets/images/sql.png)
+
+![Excel İkonu](assets/images/excel.png)  
+
+![Orders Ekranı](assets/images/orders.png)  
+
+
+
