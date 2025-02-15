@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="ea6b1362-09e7-452d-a393-639ebd232a1b" name="crypto_data Mapping">
+      <data-sources db="3a243dde-f125-43ee-b927-c39311332ed1" ddl="abe43792-87d8-4c29-a295-8a8250e026d0" />
+    </mapping>
+  </component>
+</project>

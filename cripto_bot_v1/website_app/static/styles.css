@@ -1,0 +1,442 @@
+/* Genel Stil */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #000000;
+    font-weight: 800;
+    user-select: none;
+
+}
+
+#crypto-status {
+    position: fixed;
+    top: 55px; /* Ekranın üst kısmından 55px uzaklık */
+    left: 400px; /* Ekranın sol kısmından 45px uzaklık */
+    padding: 12px 24px; /* Yastık ekleyerek metni rahatça okunan yap */
+    border-radius: 15px; /* Köşeleri daha yuvarlat */
+    font-size: 20px; /* Yazı boyutunu büyüt */
+    font-weight: 600; /* Yazıyı hafif kalın yap */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Kutunun etrafında hafif gölge */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Gölge, renk değişimi ve büyüme efektini yumuşat */
+    z-index: 1; /* Diğer içeriklerin üstünde gözükmesi için */
+    user-select: none; /* Kullanıcının metni seçmesini engelle */
+    font-family: 'Arial', sans-serif; /* Daha modern bir font */
+}
+
+#crypto-status:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); /* Üzerine gelince gölgeyi artır */
+    transform: scale(1.1); /* Üzerine gelince kutu biraz büyüsün */
+
+}
+/* Normal durum için varsayılan stil */
+#crypto-status.normal {
+    background-color: rgba(255, 255, 255); /* Beyaz arka plan, %90 opak */
+    color: black; /* Siyah metin rengi */
+}
+
+/* Toplam Kâr Yazısı için Stil */
+#total-profit-container {
+    position: fixed;
+    top: 55px; /* Ekranın üst kısmından 55px uzaklık */
+    left: 45px; /* Ekranın sol kısmından 45px uzaklık */
+    padding: 12px 24px; /* Yastık ekleyerek metni rahatça okunan yap */
+    border-radius: 15px; /* Köşeleri daha yuvarlat */
+    font-size: 20px; /* Yazı boyutunu büyüt */
+    font-weight: 600; /* Yazıyı hafif kalın yap */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Kutunun etrafında hafif gölge */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Gölge, renk değişimi ve büyüme efektini yumuşat */
+    z-index: 10; /* Diğer içeriklerin üstünde gözükmesi için */
+    user-select: none; /* Kullanıcının metni seçmesini engelle */
+    font-family: 'Arial', sans-serif; /* Daha modern bir font */
+}
+
+/* Üzerine gelince büyüme ve gölge eklemek */
+#total-profit-container:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); /* Üzerine gelince gölgeyi artır */
+    transform: scale(1.1); /* Üzerine gelince kutu biraz büyüsün */
+}
+/* Kâr durumunda yeşil renk */
+#total-profit-container.positive {
+    background-color: rgba(56, 192, 61); /* Yeşil arka plan */
+    color: white; /* Beyaz metin rengi */
+}
+
+/* Zarar durumunda kırmızı renk */
+#total-profit-container.negative {
+    background-color: rgba(250, 36, 36); /* Kırmızı arka plan */
+    color: white; /* Beyaz metin rengi */
+}
+
+/* Normal (0%) durum için varsayılan stil */
+#total-profit-container.normal {
+    background-color: rgb(255, 255, 255); /* Beyaz arka plan */
+    color: black; /* Siyah metin rengi */
+}
+
+/* Yüzde kutusu stili */
+.profit-box {
+    display: inline-block; /* Metin kadar genişlik */
+    padding: 8px 2px; /* İçerik etrafında boşluk */
+    border-radius: 12px; /* Köşeleri yuvarlat (daha büyük yuvarlama) */
+    font-size: 12px; /* Yazı boyutunu artırdık, daha belirgin olsun */
+    font-weight: bold; /* Yazıyı kalınlaştır */
+    text-align: center; /* Metni ortala */
+    min-width: 80px; /* Minimum genişlik */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Efektler ekledik */
+    margin-top: 1px; /* Üstten 10px boşluk */
+}
+
+/* Pozitif kâr için */
+.profit-box.positive {
+    background-color: rgba(42, 192, 49, 0.85); /* Yeşil arka plan */
+    color: white; /* Beyaz yazı */
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2); /* Hafif gölge */
+}
+
+/* Negatif kâr için */
+.profit-box.negative {
+    background-color: rgba(255, 0, 0, 0.85); /* Kırmızı arka plan */
+    color: white; /* Beyaz yazı */
+    box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3); /* Hafif gölge */
+}
+
+/* Nötr (0%) durum için */
+.profit-box.normal {
+    background-color: rgb(255, 255, 255); /* Beyaz arka plan */
+    color: black; /* Siyah yazı */
+    border: 1px solid #ddd; /* Hafif gri kenar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+}
+
+/* Yüzde kutusunun üzerine gelindiğinde animasyon */
+.profit-box:hover {
+    transform: scale(1.05); /* Üzerine gelince büyüsün */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Gölgeyi artır */
+}
+
+
+/* Arama ve Filtreleme Formu */
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+form input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Yeni eklenenler */
+#search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    user-select: none;
+
+}
+
+#search-button {
+    padding: 8px 16px;
+    border: none;
+    background: #00d0ff;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    user-select: none;
+}
+
+#search-button:hover {
+    background: #0056b3;
+    user-select: none;
+}
+#search-input {
+    width: 300px; /* Arama kutusunun genişliği */
+    padding: 10px; /* İçerik ile kenarlar arasındaki boşluk */
+    font-size: 16px; /* Yazı boyutu */
+    border: 1px solid #ddd; /* Kenarlık */
+    border-radius: 4px 0 0 4px; /* Sol kenarlar için yuvarlak köşeler */
+    outline: none; /* Odaklandığında oluşan mavi çerçeveyi kaldırır */
+    transition: border-color 0.3s ease-in-out; /* Kenar rengi geçiş animasyonu */
+    user-select: none;
+
+}
+
+#search-input:focus {
+    border-color: #00d0ff; /* Odaklanıldığında kenar rengi değişir */
+    box-shadow: 0 0 5px rgba(0, 208, 255, 0.5); /* Hafif bir mavi gölge eklenir */
+}
+
+form button {
+    padding: 8px 16px;
+    border: none;
+    background: #00d0ff;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+form button:hover {
+    background: #0056b3;
+}
+
+/* Kripto Kartları */
+.crypto-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.crypto-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    position: relative;
+    user-select: none;
+
+}
+
+/* Tik işareti  BUNU ARTIK KULLANMIYORUZ SANIRIM */
+.owned-tick {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    color: rgba(43, 255, 19, 0.9);
+    font-size: 30px;
+}
+
+/* Filtre Container */
+#pop-container {
+    position: fixed; /* Sabit pozisyon */
+    top: 55px; /* Ekranın üst kısmından 55px uzaklık */
+    right: 400px; /* Ekranın sağ kısmından 45px uzaklık */
+    padding: 12px 30px; /* Yastık ekleyerek metni rahatça okunan yap */
+    border-radius: 15px; /* Köşeleri daha yuvarlat */
+    font-size: 20px; /* Yazı boyutunu büyüt */
+    font-weight: 600; /* Yazıyı hafif kalın yap */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Kutunun etrafında hafif gölge */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Gölge, renk değişimi ve büyüme efektini yumuşat */
+    z-index: 1; /* Diğer içeriklerin üstünde kalması için */
+    user-select: none; /* Kullanıcının metni seçmesini engelle */
+    font-family: 'Arial', sans-serif; /* Daha modern bir font */
+    background-color: rgb(255, 255, 255); /* Varsayılan arka plan rengi + saydamlık (0.9 saydamlık) */
+}
+
+/* Filtre Container üzerine gelindiğinde gölge eklemek */
+#pop-container:hover {
+    background-color: rgb(229, 225, 225); /* Hover durumunda arka plan rengi ve saydamlık */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); /* Hover durumunda gölgeyi artır */
+    transform: scale(1.1); /* Üzerine gelince kutu biraz büyüsün, fakat yavaşça */
+}
+
+/* Filtre metni */
+#pop-text {
+    color: #171313; /* Varsayılan yazı rengi beyaz */
+    font-size: 20px; /* Yazı boyutunu büyüt */
+    font-weight: 600; /* Yazıyı hafif kalın yap */
+    text-align: center; /* Metni ortala */
+}
+
+/* Filtre Container */
+#filter-container {
+    position: fixed; /* Sabit pozisyon */
+    top: 55px; /* Ekranın üst kısmından 55px uzaklık */
+    right: 45px; /* Ekranın sağ kısmından 45px uzaklık */
+    padding: 12px 40px; /* Yastık ekleyerek metni rahatça okunan yap 12px 50px*/
+    border-radius: 15px; /* Köşeleri daha yuvarlat */
+    font-size: 20px; /* Yazı boyutunu büyüt */
+    font-weight: 600; /* Yazıyı hafif kalın yap */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Kutunun etrafında hafif gölge */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Gölge, renk değişimi ve büyüme efektini yumuşat */
+    z-index: 1; /* Diğer içeriklerin üstünde kalması için */
+    user-select: none; /* Kullanıcının metni seçmesini engelle */
+    font-family: 'Arial', sans-serif; /* Daha modern bir font */
+    background-color: rgba(0, 149, 255); /* Varsayılan arka plan rengi + saydamlık (0.9 saydamlık) */
+}
+
+/* Filtre Container üzerine gelindiğinde gölge eklemek */
+#filter-container:hover {
+    background-color: rgba(0, 115, 231); /* Hover durumunda arka plan rengi ve saydamlık */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3); /* Hover durumunda gölgeyi artır */
+    transform: scale(1.1); /* Üzerine gelince kutu biraz büyüsün, fakat yavaşça */
+}
+
+/* Filtre metni */
+#filter-text {
+    color: white; /* Varsayılan yazı rengi beyaz */
+    font-size: 20px; /* Yazı boyutunu büyüt */
+    font-weight: 600; /* Yazıyı hafif kalın yap */
+    text-align: center; /* Metni ortala */
+}
+
+
+
+#search-wrapper {
+    position: relative;
+    width: 300px;
+}
+
+#suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Öneri listesi için stil */
+#search-wrapper {
+    position: relative;
+    width: 300px;
+    margin: auto;
+}
+
+#suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none; /* Başlangıçta gizli */
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.crypto-container {
+    margin-top: 20px;
+}
+
+
+/* Etkinleştir/Devre Dışı Bırak Butonu */
+.toggle {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #171313;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.toggle.active {
+    background-color: #24ff71;
+}
+
+.toggle.disabled {
+    background-color: rgba(250, 20, 55, 0.8);
+}
+
+.toggle:hover, .owned:hover {
+    background-color: #444;
+}
+
+
+
+
+
+/* Al/Sat Butonu */
+.owned {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #171313;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Al butonu aktif */
+.owned.buy {
+    background-color: #24ff71;
+}
+
+.owned.buy.active {
+    background-color: #20c55f;
+}
+
+.owned.buy:hover {
+    background-color: #18b85e;
+}
+
+/* Sat butonu aktif */
+.owned.sell {
+    background-color: rgba(250, 20, 55, 0.8);
+}
+
+.owned.sell.active {
+    background-color: #e60038;
+}
+
+.owned.sell:hover {
+    background-color: #d70034;
+}
+
+/* Devre dışı buton */
+.owned.disabled, .toggle.disabled {
+    background-color: rgba(150, 150, 150, 0.7);
+    color: #888;
+    cursor: not-allowed;
+}
+
+.owned.disabled:hover, .toggle.disabled:hover {
+    background-color: rgba(150, 150, 150, 0.8);
+}
+
+/* Devre dışı Al/Sat Butonları */
+.owned.disabled {
+    background-color: rgba(150, 150, 150, 0.7);
+    cursor: not-allowed; /* Tıklanmayı engeller */
+    pointer-events: none; /* Tıklanmayı engeller */
+}
+
+.owned.disabled:hover {
+    background-color: rgba(150, 150, 150, 0.8);
+}
+
+.owned.buy.disabled {
+    background-color: rgba(50, 255, 50, 0.3); /* Devre dışı alım butonu */
+}
+
+.owned.sell.disabled {
+    background-color: rgba(255, 50, 50, 0.3); /* Devre dışı satım butonu */
+}
