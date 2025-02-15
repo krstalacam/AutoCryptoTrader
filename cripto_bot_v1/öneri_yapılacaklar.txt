@@ -1,0 +1,7 @@
+1- Tüm kriptolar yazısının yanına en çok kullanılanlar gibi bir buton ekle ona tıklayınca en çok
+işlem yapılanlar ya da en son işlem yapılanlar gözüksün sadece en son işlem yapılanlar en üstte gözükebilir
+ona benzer bir şey yap çünkü böyle takip etmesi zor oluyor
+
+2- Normalde al ve sat butonu biraz daha aşağıda eğer ilk kez basarsak al a o zaman orada yüzde simgesi rengi değişiyorya
+belki ondandır al butonu biraz yukarıya geliyor istersen düzelt istersen kalsın farketmez görüntüyle alakalı bir şey
+

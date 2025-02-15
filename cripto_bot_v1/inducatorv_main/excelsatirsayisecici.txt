@@ -1,0 +1,25 @@
+Sub FindAndWriteLastValueTo512Row()
+    Dim ws As Worksheet
+    Dim lastCol As Long
+    Dim lastRow As Long
+    Dim currentCol As Long
+    Dim lastValue As Variant
+    
+    ' Aktif çalýþma sayfasýný seç
+    Set ws = ActiveSheet
+    
+    ' Son sütunu bul (B ile NW arasýnda)
+    lastCol = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column
+    
+    ' Her sütun için döngü
+    For currentCol = 2 To lastCol ' 2. sütundan baþla (B sütunundan)
+        ' Bu sütundaki son dolu satýrý bul
+        lastRow = ws.Cells(ws.Rows.Count, currentCol).End(xlUp).Row
+        
+        ' Son satýrdaki deðeri al
+        lastValue = ws.Cells(lastRow, currentCol).Value
+        
+        ' 512. satýra son deðeri yaz
+        ws.Cells(512, currentCol).Value = lastValue
+    Next currentCol
+End Sub

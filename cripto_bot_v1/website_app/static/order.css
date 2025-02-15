@@ -1,0 +1,162 @@
+/* Modal temel stil */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal içeriği */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Kapatma butonu */
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    color: #888;
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Emir grupları için stil */
+.order-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Al ve Sat bilgileri */
+.order-info-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buy-info,
+.sell-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.buy-info {
+    color: #171313;
+}
+
+.sell-info {
+    color: #000000;
+}
+
+.buy-tag,
+.sell-tag {
+    font-size: 0.7em;
+    padding: 3px 6px;
+    border-radius: 12px;
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+.buy-tag {
+    color: #171313;
+}
+
+.sell-tag {
+    color: #171313;
+    background-color: rgba(38, 27, 26, 0.1);
+}
+
+/* Yüzde fark stili */
+.percentage-diff {
+    font-size: 0.95em; /* Yazıyı biraz küçültmek için */
+    font-weight: bold;
+    padding: 4px 10px; /* Kutunun boyutunu yazıya göre ayarlamak için padding'i arttırdım */
+    border-radius: 8px;
+    text-align: center; /* Yüzdeyi tam ortalayacak şekilde hizalama */
+    min-width: 50px; /* Kutu genişliği sabit tutulur */
+    display: inline-block; /* Kutuya inline block özelliği ekleyerek hizalamayı daha kolay hale getirdik */
+    margin-right: 15px;
+}
+
+
+.percentage-positive {
+    color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.15);
+}
+
+.percentage-negative {
+    color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.15);
+}
+.percentage-normal {
+    color: #000000; /* Negatif görünüm için kırmızı */
+    background-color: rgba(41, 47, 44, 0.1); /* Hafif kırmızı arka plan */
+}
+
+/* Kripto sembolü ve toplam kâr bilgisi */
+#crypto-symbol-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    padding: 10px 15px;
+    border-radius: 12px;
+}
+
+#crypto-symbol {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Toplam Kâr özel vurgusu */
+.total-profit {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 8px 12px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.total-profit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.total-profit.normal {
+    color: #000000; /* Negatif görünüm için kırmızı */
+    background-color: rgba(41, 47, 44, 0.1); /* Hafif kırmızı arka plan */
+}
+/* Eğer negatif değerler için özel görünüm gerekirse */
+.total-profit.positive {
+    color: #2ecc71; /* Negatif görünüm için kırmızı */
+    background-color: rgba(46, 204, 113, 0.1); /* Hafif kırmızı arka plan */
+}
+.total-profit.negative {
+    color: #e74c3c; /* Negatif görünüm için kırmızı */
+    background-color: rgba(231, 76, 60, 0.1); /* Hafif kırmızı arka plan */
+}
