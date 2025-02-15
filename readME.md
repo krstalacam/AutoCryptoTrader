@@ -1,4 +1,4 @@
-# 🚀 Kripto Para Ticaret Botu
+## 🚀 Kripto Para Ticaret Botu
 
 Bu proje, **otomatik alım-satım** yapabilen, **teknik analiz** göstergeleri kullanan ve **web arayüzü** üzerinden kontrol edilebilen kapsamlı bir **kripto ticaret botudur**.
 
@@ -8,9 +8,16 @@ Bu proje, **otomatik alım-satım** yapabilen, **teknik analiz** göstergeleri k
 
 Botu başlatmak için:
 ```
-python cripto_bot_v1/binance_bot/Crypto_Bot_App.py
+python -m cripto_bot_v1.binance_bot.Crypto_Bot_App
 ```
-Bu komut, veri toplayıcıdan işlem yöneticisine kadar tüm bileşenleri başlatır.
+Bu komut, veri toplaycıdan işlem yöneticisine kadar tüm bileşenleri başlatır.
+
+Eğer **Python komutunu** doğrudan kullanamıyorsanız ve PATH ile ilgili bir sorun varsa, şu komutu da alternatif olarak kullanabilirsiniz:
+```
+cd C:\crypto_bot
+C:\crypto_bot\venv\Scripts\python.exe -m cripto_bot_v1.binance_bot.Crypto_Bot_App
+```
+Not: Eğer "cd C:\crypto_bot" komutunu kullanacaksanız, dosyaların C:\crypto_bot klasörüne kurulduğundan emin olun veya dosyaların olduğu dizini girerek devam edin.
 
 ---
 
@@ -80,10 +87,10 @@ Tüm işlemleri tarayıcınızdan yönetebilirsiniz! 🚀
 
 ## ⚠️ Önemli Notlar
 
-🔸 Bot başlatıldığında **varsayılan olarak alım-satım devre dışıdır**
-🔸 Test modunda **gerçek işlem yapılmaz**
-🔸 **Bilgisayar saatinin senkronize olması önemlidir**
-🔸 **API anahtarlarını güvenli tutun** (Yanlış kullanım ciddi zararlara yol açabilir)
+🔸 Bot başlatıldığında **varsayılan olarak alım-satım devre dışıdır**  
+🔸 Test modunda **gerçek işlem yapılmaz**  
+🔸 **Bilgisayar saatinin senkronize olması önemlidir**  
+🔸 **API anahtarlarını güvenli tutun** (Yanlış kullanım ciddi zararlara yol açabilir)  
 🔸 **Risk yönetimi ayarlarını dikkatlice yapılandırın**
 
 ---
@@ -91,11 +98,11 @@ Tüm işlemleri tarayıcınızdan yönetebilirsiniz! 🚀
 ## 🛠 Hata Ayıklama
 
 🔹 **Binance API Hataları:**  
-- API anahtarlarını kontrol edin 🔑
-- Bilgisayar saatini doğrulayın 🕒
+- API anahtarlarını kontrol edin 🔑  
+- Bilgisayar saatini doğrulayın 🕒  
 
 🔹 **Web Arayüzü Çalışmıyor:**  
-- Port çakışmalarını kontrol edin 🔍
+- Port çakışmalarını kontrol edin 🔍  
 - WebSocket bağlantısını kontrol edin 🌐
 
 ---
@@ -114,33 +121,41 @@ Tüm işlemleri tarayıcınızdan yönetebilirsiniz! 🚀
 ## 🔎 Nasıl Çalışır?
 
 1️⃣ **Başlat:**  
-   - `Crypto_Bot_App.py` çalıştırılır
-   - **Veri toplama, sinyal işleme, işlem yönetimi ve web arayüzü eş zamanlı başlar**
+   - `Crypto_Bot_App.py` çalıştırılır  
+   - **Veri toplama, sinyal işleme, işlem yönetimi ve web arayüzü eş zamanlı başlar**  
 
 2️⃣ **Veri Toplama:**  
-   - Binance API'den veriler alınır
-   - **SQLite veritabanına kaydedilir**
+   - Binance API'den veriler alınır  
+   - **SQLite veritabanına kaydedilir**  
 
 3️⃣ **Sinyal Üretimi:**  
-   - **Teknik analiz hesaplanır**
-   - **Alım-satım sinyalleri üretilir** ve işlem yöneticisine gönderilir
+   - **Teknik analiz hesaplanır**  
+   - **Alım-satım sinyalleri üretilir** ve işlem yöneticisine gönderilir  
 
 4️⃣ **İşlem Yönetimi:**  
-   - **Kullanıcı komutlarına göre işlemler gerçekleştirilir**
-   - Binance API'ye güvenli emirler gönderilir
+   - **Kullanıcı komutlarına göre işlemler gerçekleştirilir**  
+   - Binance API'ye güvenli emirler gönderilir  
 
 5️⃣ **Web Arayüzü:**  
-   - **Gerçek zamanlı güncellemeler WebSocket ile sağlanır**
+   - **Gerçek zamanlı güncellemeler WebSocket ile sağlanır**  
    - **Tüm işlemler tarayıcıdan yönetilebilir**
 
 ---
 
 ## 💡 İpuçları
 
-✔ **İlk kullanımda API anahtarlarınızı ve veritabanı ayarlarınızı kontrol edin**
-✔ **Test modunda çalıştırarak riski minimize edin**
-✔ **Logları inceleyerek hata ayıklama yapabilirsiniz** (`logs/` klasörünü kontrol edin!)
-✔ **Saat ayarlarını doğru yapın** (Binance ile senkron çalışması için)
+✔ **İlk kullanımda API anahtarlarınızı ve veritabanı ayarlarınızı kontrol edin**  
+✔ **Test modunda çalıştırarak riski minimize edin**  
+✔ **Logları inceleyerek hata ayıklama yapabilirsiniz** (`logs/` klasörünü kontrol edin!)  
+✔ **Saat ayarlarını doğru yapın** (Binance ile senkron çalışması için)  
+
+---
+
+## 💡 Kendi İndikatörlerinizi Oluşturun
+
+Bot, mevcut indikatörler ve teknik analiz araçlarıyla hazır bir şekilde gelir, ancak siz **kendi özel göstergelerinizi** oluşturabilir ve test edebilirsiniz! 💻📊
+
+- **Yeni göstergeler eklemek için** `cripto_bot_v1/inducatorv_main/` klasöründe yeni dosyalar oluşturabilirsiniz.  
+- İhtiyacınıza göre **göstergeleri özelleştirebilir** ve **performanslarını test edebilirsiniz**.
 
 🚀 **Güvenli ve kârlı işlemler dileriz!** 📈💰
-
